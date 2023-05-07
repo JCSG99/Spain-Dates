@@ -40,71 +40,70 @@ const bookings = [
         if (i === 0 && j < firstDayOfWeek) {
           row.insertCell();
         }
-        else if (date > daysInMonth) {
-            break;
-          } else {
-            const cell = row.insertCell();
-            cell.innerText = date;
-    
-            // Check if the date is already booked
-            const formattedDate = currentYear + "-" + (currentMonth + 1) + "-" + date;
-            if (isDateBooked(formattedDate)) {
-              cell.classList.add("booked");
-            }
-    
-            date++;
-          }
-        }
-      }
-    
-      calendarContainer.innerHTML = "";
-      calendarContainer.appendChild(calendar);
-    }
-    
-    // Check if a date is already booked
-    function isDateBooked(date) {
-      for (let booking of bookings) {
-        if (date >= booking.startDate && date <= booking.endDate) {
-          return true;
-        }
-      }
-      return false;
-    }
-    
-    // Add booking to the list
-    function addBooking() {
-      const nameInput = document.getElementById("name");
-      const startDateInput = document.getElementById("startDate");
-      const endDateInput = document.getElementById("endDate");
-    
-      const name = nameInput.value;
-      const startDate = startDateInput.value;
-      const endDate = endDateInput.value;
-    
-      if (name && startDate && endDate) {
-        const booking = { name, startDate, endDate };
-        bookings.push(booking);
-    
-        const listItem = document.createElement("li");
-        listItem.innerText = name + ": " + startDate + " to " + endDate;
-        bookingList.appendChild(listItem);
-    
-        // Clear form inputs
-        nameInput.value = "";
-        startDateInput.value = "";
-        endDateInput.value = "";
-    
-        // Clear calendar and render again
-        calendarContainer.innerHTML = "";
-        renderCalendar();
+          else if (date > daysInMonth) {
+        break;
       } else {
-        alert("Please fill in all the fields.");
+        const cell = row.insertCell();
+        cell.innerText = date;
+
+        // Check if the date is already booked
+        const formattedDate = currentYear + "-" + (currentMonth + 1) + "-" + date;
+        if (isDateBooked(formattedDate)) {
+          cell.classList.add("booked");
+        }
+
+        date++;
       }
     }
-    
-    // Event listener for the addBooking button
-    addBookingBtn.addEventListener("click", addBooking);
-    
-    // Render the initial calendar
+  }
+
+  calendarContainer.innerHTML = "";
+  calendarContainer.appendChild(calendar);
+}
+
+// Check if a date is already booked
+function isDateBooked(date) {
+  for (let booking of bookings) {
+    if (date >= booking.startDate && date <= booking.endDate) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Add booking to the list
+function addBooking() {
+  const nameInput = document.getElementById("name");
+  const startDateInput = document.getElementById("startDate");
+  const endDateInput = document.getElementById("endDate");
+
+  const name = nameInput.value;
+  const startDate = startDateInput.value;
+  const endDate = endDateInput.value;
+
+  if (name && startDate && endDate) {
+    const booking = { name, startDate, endDate };
+    bookings.push(booking);
+
+    const listItem = document.createElement("li");
+    listItem.innerText = name + ": " + startDate + " to " + endDate;
+    bookingList.appendChild(listItem);
+
+    // Clear form inputs
+    nameInput.value = "";
+    startDateInput.value = "";
+    endDateInput.value = "";
+
+    // Clear calendar and render again
+    calendarContainer.innerHTML = "";
     renderCalendar();
-    
+  } else {
+    alert("Please fill in all the fields.");
+  }
+}
+
+// Event listener for the addBooking button
+addBookingBtn.addEventListener("click", addBooking);
+
+// Render the initial calendar
+renderCalendar();
