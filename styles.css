@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  #booking-form {
+    margin-top: 20px;
+  }
+  
+  #booking-form input, #booking-form button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #booking-list {
+    margin-top: 20px;
+  }
+  
+  #dates {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #dates li {
+    margin-bottom: 5px;
+  }
+  
