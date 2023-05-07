@@ -1,31 +1,72 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  h1, h2 {
-    text-align: center;
-  }
-  
-  #booking-form {
-    margin-top: 20px;
-  }
-  
-  #booking-form input, #booking-form button {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  #booking-list {
-    margin-top: 20px;
-  }
-  
-  #dates {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #dates li {
-    margin-bottom: 5px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f2f2f2;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+#calendar {
+  margin-bottom: 20px;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.calendar td {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar td.booked {
+  background-color: #ff9999;
+}
+
+#booking-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#booking-form input, #booking-form button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#booking-form button {
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+#booking-list {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#dates {
+  list-style-type: none;
+  padding: 0;
+}
+
+#dates li {
+  margin-bottom: 5px;
+  color: #555;
+}
